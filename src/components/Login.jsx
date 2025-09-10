@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("Remmsama@123");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleLogin = async () => {
     // Implement login logic here
@@ -26,6 +27,7 @@ const Login = () => {
       dispatch(addUser(res.data));
       navigate("/");
     } catch (err) {
+      setError(err?.response?.data || "Something went wrong");
       console.log(err);
     }
   };
@@ -58,6 +60,7 @@ const Login = () => {
               {/* <p className="label">Optional</p> */}
             </fieldset>
           </div>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center m-2">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login
