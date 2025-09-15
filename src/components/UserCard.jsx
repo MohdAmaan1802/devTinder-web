@@ -2,7 +2,7 @@ import React from "react";
 
 export const UserCard = ({ user }) => {
   const { firstName, lastName, age, photoUrl, gender, about } = user || {};
-  console.log(user);
+  // console.log(user);
   return (
     <div className="card bg-base-300 w-96 shadow-sm">
       <figure>
